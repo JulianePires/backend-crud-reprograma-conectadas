@@ -10,7 +10,7 @@ const express = require("express");
 // Configura cors na aplicação
 const cors = require("cors");
 const MongooseConnection = require("./infra/mongoose");
-const routes = require("./routes");
+const routes = require("./routes/bookRoutes");
 
 const app = express();
 
@@ -24,8 +24,9 @@ const db_url = process.env.DB_URL;
 const db_user = process.env.DB_USER;
 const db_pass = process.env.DB_PASS;
 const db_data = process.env.DB_DATA;
+const db_connection_string = process.env.DB_CONNECTION_STRING
 
 // Configura a conexão com a base de dados
-MongooseConnection(db_url, db_user, db_pass, db_data);
+MongooseConnection(db_connection_string)
 
 module.exports = app;

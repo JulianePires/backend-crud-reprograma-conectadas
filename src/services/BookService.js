@@ -1,15 +1,35 @@
-const model = require("../infra/database/models/Book");
+const Book = require("../infra/database/models/Book");
 
-//TODO: Criar service da aplicação
-const getAll = async () => {
-  return await model.find();
+// Função para listar todos os livros
+const getBooks = async () => {
+  return await Book.find();
 };
 
+// Função para obter um livro por ID
 const getById = async (id) => {
-  return await model.findById(id);
+  return await Book.findById(id);
+};
+
+// Função para criar um novo livro
+const create = async (data) => {
+  return await Book.create(data);
+};
+
+// Função para atualizar um livro por ID
+const updateById = async (id, data) => {
+  return await Book.findByIdAndUpdate(id, data, { new: true });
+};
+
+// Função para excluir um livro por ID
+const deleteById = async (id) => {
+  return await Book.findByIdAndRemove(id);
 };
 
 module.exports = {
-  getAll,
+  getBooks,
   getById,
+  create,
+  updateById,
+  deleteById,
 };
+
