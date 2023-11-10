@@ -51,14 +51,19 @@ const updateFilme = async (req, res) => {
     return;
   }
 
-  const updateFilme = await service.updateById(id, req.body);
+  try {
+    const updatedFilme = await service.updateById(id, req.body);
 
-  if (!updatedFilme) {
-    res.status(404).send({ message: "O filme não foi encontrado. Por favor, verifique se o Id está correto e tente novamente." });
-  } else {
-    res.send(updatedFilme);
+    if (!updatedFilme) {
+      res.status(404).send({ message: "O filme não foi encontrado. Por favor, verifique se o Id está correto e tente novamente." });
+    } else {
+      res.send({ message: "Filme atualizado com sucesso.", filme: updatedFilme });
+    }
+  } catch (error) {
+    res.status(500).send({ message: "Erro interno ao processar a requisição.", error: error.message });
   }
 };
+
 
 // Buscar filmes por diretor
 
