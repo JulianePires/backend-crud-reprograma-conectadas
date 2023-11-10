@@ -35,7 +35,7 @@ const getFilmeById = async (req, res) => {
 const createFilme = async (req, res) => {
   try {
     const newFilme = await service.create(req.body);
-    res.status(201).send(newBook);
+    res.status(201).send(newFilme);
   } catch (error) {
     res.status(400).send({ message: "Falha ao cadastrar o novo filme. Por favor, tente novamente.", error: error.message });
   }
