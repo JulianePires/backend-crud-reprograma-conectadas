@@ -7,10 +7,11 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const express = require("express");
-// Configura cors na aplicação
+
+
 const cors = require("cors");
 const MongooseConnection = require("./infra/mongoose");
-const routes = require("./routes/bookRoutes");
+const routes = require("./routes/filmesRoutes");
 
 const app = express();
 

@@ -13,5 +13,5 @@ function normalizaPorta(val) {
 }
 
 app.listen(porta, function () {
-  console.log(`aplicação rodando na porta ${porta}`);
+  console.log(`A aplicação está rodando na porta ${porta}`);
 });
