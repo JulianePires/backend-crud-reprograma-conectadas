@@ -3,7 +3,7 @@ const router = express.Router();
 const filmeController = require("../controller/FilmesController");
 
 // Listar todos os filmes
-router.get("/", filmeController.getFilmes);
+router.get("/filmes", filmeController.getFilmes);
 
 // Localizar um filme por ID
 router.get("/:id", filmeController.getFilmeById);
@@ -24,5 +24,6 @@ router.get("/genero/:genero", filmeController.getFilmesByGenero);
 router.delete("/delete/:id", filmeController.deleteFilme);
 
 module.exports = router;
+
 
 

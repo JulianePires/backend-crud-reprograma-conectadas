@@ -1,6 +1,7 @@
 const service = require("../services/filmeService");
 const mongoose = require("mongoose");
 
+
 // Listar todos os filmes existentes
 
 const getFilmes = async (req, res) => {
@@ -90,6 +91,7 @@ const getFilmesByGenero = async (req, res) => {
     res.status(200).send(filmes);
   }
 };
+
 
 // Excluir um filme por ID
 
